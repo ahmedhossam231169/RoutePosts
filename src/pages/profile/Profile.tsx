@@ -21,18 +21,19 @@ export default function Profile() {
   const [myPosts, setMyPosts] = useState<PostCardI[]>([])
 
   useEffect(() => {
+    if (!userData?._id) return
     async function fetchAllPosts() {
       try {
-        const { data } = await getAllPosts(userData?._id!)
+        const { data } = await getAllPosts(userData!._id)
         const feedPosts: PostCardI[] = data.data.posts
         setMyPosts(feedPosts)
-        console.log(myPosts)
       } catch (error) {
         console.log(error)
       }
     }
     fetchAllPosts()
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userData?._id])
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-5 py-6 sm:py-8">
