@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/*
+  "Ink & Paper" — an editorial, print-inspired system.
+  Warm paper background, near-black ink, one restrained brick accent.
+  Structure comes from hairline rules, not shadows.
+*/
+@theme {
+  --color-paper: #f3f0e8;
+  --color-surface: #fbf9f3;
+  --color-raise: #ffffff;
+
+  --color-ink: #201c17;
+  --color-ink-soft: #675f53;
+  --color-ink-faint: #9c9284;
+
+  --color-line: #e2dccd;
+  --color-line-strong: #cbc3b1;
+
+  --color-accent: #b23b2e;
+  --color-accent-soft: #f1e2dc;
+
+  --color-ok: #3f6b4f;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius-xs: 3px;
+  --radius-card: 4px;
+
+  --shadow-pop: 0 8px 24px -12px rgba(32, 28, 23, 0.25);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.012em;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  /* keep native controls on-brand */
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* small entrance used on feed items / cards */
+  .rise {
+    animation: rise 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* thin uppercase meta label, editorial style */
+  .kicker {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.66rem;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
