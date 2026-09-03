@@ -38,7 +38,7 @@ export function RegesterForm() {
 
   async function onSubmitForm(data: RegisterSchema) {
     try {
-      const response = await registerUser(data);
+      await registerUser(data);
       toast.success("Registration successful!");
       setTimeout(() => {
       navigation("/login");
