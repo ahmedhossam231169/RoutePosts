@@ -98,7 +98,7 @@ export default function SectionsDrawer() {
         }
       >
         <div className="flex items-center justify-between h-16 px-4 border-b border-line">
-          <p className="kicker text-ink-faint">Sections</p>
+          <p className="kicker text-ink-faint">Rote</p>
           <button
             type="button"
             onClick={() => setOpen(false)}
