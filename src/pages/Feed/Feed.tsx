@@ -1,6 +1,5 @@
 import {  useEffect, useRef, useState } from "react"
 import {  RefreshCw } from "lucide-react"
-import { NavLink } from "react-router"
 import PostCard from "../../components/postCrad/postCrad"
 import PostCardSkelton from "../../components/postCrad/postCardSkelton"
 import { getNewsFeed } from "../../services/posts.service"
@@ -10,14 +9,7 @@ import SuggestFlowers from "../../components/SuggestFlowers/SuggestFlowers"
 import SuggestFlowersSkelton from "../../components/SuggestFlowers/SuggestFlowersSkelton"
 import { getSuggestions } from "../../services/suggestions.service"
 import CreatePostCard from "../../components/createPostCard/CreatePostCard"
-
-
-const sideLinks: { label: string; to: string | null }[] = [
-  { label: "Feed", to: "/feed" },
-  { label: "My Posts", to: "/myPosts" },
-  { label: "Community", to: "/Community" },
-  { label: "Saved", to: null },
-]
+import { SectionLinks } from "../../components/SectionsMenu/SectionsMenu"
 
 // how far (in px) the user has to pull down before we trigger a refresh
 const PULL_THRESHOLD = 80
@@ -118,35 +110,11 @@ export default function Feed() {
         </div>
       )}
 
-      {/* left rail */}
+      {/* left rail — desktop */}
       <aside className="hidden lg:block lg:col-span-3">
         <div className="sticky top-24">
           <p className="kicker text-ink-faint mb-3">Sections</p>
-          <nav className="flex flex-col">
-            {sideLinks.map((link) =>
-              link.to ? (
-                <NavLink
-                  key={link.label}
-                  to={link.to}
-                  className={({ isActive }) =>
-                    "text-left text-sm py-2 pl-3 border-l-2 transition-colors " +
-                    (isActive
-                      ? "border-ink text-ink font-medium"
-                      : "border-line text-ink-soft hover:text-ink hover:border-line-strong")
-                  }
-                >
-                  {link.label}
-                </NavLink>
-              ) : (
-                <button
-                  key={link.label}
-                  className="text-left text-sm py-2 pl-3 border-l-2 border-line text-ink-soft hover:text-ink hover:border-line-strong transition-colors"
-                >
-                  {link.label}
-                </button>
-              )
-            )}
-          </nav>
+          <SectionLinks />
         </div>
       </aside>
 

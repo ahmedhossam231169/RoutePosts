@@ -23,7 +23,7 @@ function App() {
 const router = createBrowserRouter([
     {
       path: "/auth", element:<AuthProtactedRoute> <AuthLayout/></AuthProtactedRoute> , children: [
-        { index: true, element: <Navigate to={"login"} /> },
+        { index: true, element: <Regester /> },
         { path: "login", element: <Login /> },
         { path: "register", element: <Regester /> },
       ]

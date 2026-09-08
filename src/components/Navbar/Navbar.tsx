@@ -1,6 +1,7 @@
 import { NavLink } from "react-router";
 import { Home, User, Bell } from "lucide-react";
 import { DropDown } from "../dropdown/DropDown";
+import SectionsDrawer from "../SectionsMenu/SectionsMenu";
 
 const tabs = [
   { to: "/feed", label: "Feed", icon: Home },
@@ -15,10 +16,13 @@ export default function Navbar() {
       <nav className="sticky top-0 z-40 bg-paper/85 backdrop-blur-sm border-b border-line">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-4 h-16 px-4 sm:px-5">
 
-          {/* wordmark */}
-          <NavLink to="/feed" className="font-display text-xl sm:text-2xl font-medium tracking-tight shrink-0">
-            Route<span className="text-accent">.</span>
-          </NavLink>
+          {/* mobile sections drawer + wordmark */}
+          <div className="flex items-center gap-1 shrink-0">
+            <SectionsDrawer />
+            <NavLink to="/feed" className="font-display text-xl sm:text-2xl font-medium tracking-tight">
+              Route<span className="text-accent">.</span>
+            </NavLink>
+          </div>
 
           {/* primary nav — tablet / desktop only, underlined active state */}
           <div className="hidden sm:flex items-center gap-6 lg:gap-7 text-sm">
