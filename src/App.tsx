@@ -1,5 +1,5 @@
 
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
+import { createBrowserRouter, RouterProvider } from 'react-router'
 import './index.css'
 import Login from './pages/Login/Login'
 
